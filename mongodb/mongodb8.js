@@ -21,7 +21,7 @@ MongoClient.connect(connectionURL, { useUnifiedTopology: true }, (error, client)
   },
     {
       $set: {
-        name: 'SRGT'
+        name: 'SRGT'  
       }
     });
 

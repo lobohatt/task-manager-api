@@ -29,6 +29,7 @@ router.post('/users/login', async (req, res) => {
   try {
     const user = await User.findByCredentials(req.body.email, req.body.password);
     const token = await user.generateAuthToken();
+
     res.send({ user: user, token: token });
     res.send(user);
   } catch (e) {
@@ -95,7 +96,6 @@ router.patch('/users/me', auth, async (req, res) => {
   }
 
   try {
-
 
     updates.forEach((update) => {
       req.user[update] = req.body[update];
